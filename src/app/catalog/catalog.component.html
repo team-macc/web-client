@@ -1,1 +1,7 @@
-<p>catalog works!</p>
+<h1>My products</h1>
+
+<ul>
+    <li *ngFor="let product of listOfProducts">
+        <span>{{product.id}}</span> {{product.name}}
+    </li>
+</ul>
