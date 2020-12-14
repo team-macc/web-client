@@ -5,7 +5,7 @@ import FormInput from '../form-input/form-input.component.jsx';
 import CustomButton from '../custom-button/custom-button.component.jsx';
 
 
-import { auth, createUserProfileDocument } from '../../firebase/firebase.utils.js'
+import { createUserWithEmailAndPassword } from '../../services/auth.service';
 
 import './sign-up.styles.scss';
 
@@ -32,12 +32,11 @@ class SignUp extends React.Component{
         }
 
         try{
-            const {user} = await auth.createUserWithEmailAndPassword(
+            await createUserWithEmailAndPassword(
                 email, 
                 password
             )
-            await createUserProfileDocument(user,{ displayName})
-
+            
             this.setState({
               displayName: "",
               email: "",
@@ -60,15 +59,15 @@ class SignUp extends React.Component{
         const {displayName, email, password, confirmPassword } = this.state
         return (
           <div className="sign-up">
-            <h2 className="title">I do not have an account</h2>
-            <span>Sign up with your email and password</span>
+            <h2 className="title">Eu não tenho conta</h2>
+            <span>Cadastrar email e senha</span>
             <form className="sign-up-form" onSubmit={this.handleSubmit}>
               <FormInput
                 type="text"
                 name="displayName"
                 value={displayName}
                 onChange={this.handleChange}
-                label="Display Name"
+                label="Nome"
                 required
               />
 
@@ -86,7 +85,7 @@ class SignUp extends React.Component{
                 name="password"
                 value={password}
                 onChange={this.handleChange}
-                label="Password"
+                label="Senha"
                 required
               />
 
@@ -95,11 +94,11 @@ class SignUp extends React.Component{
                 name="confirmPassword"
                 value={confirmPassword}
                 onChange={this.handleChange}
-                label="Confirm Password"
+                label="Confirma Senha"
                 required
               />
 
-              <CustomButton type='submit'>SIGN UP</CustomButton>
+              <CustomButton type='submit'>Cadastrar</CustomButton>
             </form>
           </div>
         );
