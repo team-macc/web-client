@@ -1,30 +1,36 @@
-export const createUserWithEmailAndPassword = (email, password) => {
+export const createUserWithEmailAndPassword = (name, email, password) => {
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-            username: email.split("@")[0],
+        body: JSON.stringify({
+            email: email,
             password: password,
-            email: email
-     })
+            name: name
+        })
     };
 
-    fetch('http://localhost:8080/api/auth/signup', requestOptions)
+    fetch('http://localhost:8080/api/client', requestOptions)
         .then(res => res.json())
-        .catch(err => console.log(err))
+        .then(data => {
+            return data;
+        })
+        .catch(err => console.log(err));
 }
 
 export const loginWithEmailAndPassword = (email, password) => {
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
+        body: JSON.stringify({
             username: email,
             password: password
-     })
+        })
     };
 
-    fetch('http://localhost:8080/api/auth/login', requestOptions)
+    fetch('http://localhost:8080/login', requestOptions)
         .then(res => res.json())
+        .then(data => {
+            return data;
+        })
         .catch(err => console.log(err))
 }
