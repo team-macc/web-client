@@ -12,6 +12,7 @@
 <script>
 import VmProducts from '../Products';
 import { getByTitle } from '@/assets/filters';
+import axios from 'axios';
 
 export default {
   name: 'productsList',
@@ -24,6 +25,12 @@ export default {
       noProductLabel: 'No product found',
       productsFiltered: []
     };
+  },
+
+  created () {
+    axios.get('http://catalog')
+      .then(res => this.$store.dispatch(""))
+      .catch(err => console.log(err))
   },
 
   computed: {

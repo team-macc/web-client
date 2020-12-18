@@ -232,6 +232,9 @@ export const mutations = {
       }
     });
   },
+  setProductList: (state, products) => {
+    state.products = products;
+  },
   loginFailed: (state, data) => {
     console.log("login failed")
   },
@@ -249,6 +252,10 @@ export const actions = {
   
   showLoginModal({commit}, flag) {
     commit("showLoginModal", flag)
+  },
+
+  setProductList({commit}, products) {
+    commit("setProductList", products)
   }
 
   /*
