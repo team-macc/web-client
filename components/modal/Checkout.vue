@@ -10,8 +10,8 @@
 				<div v-if="!isCheckoutSection">
 					<div class="box" v-for="product in products" :key="product.id">
 						<button class="is-pulled-right button is-info is-inverted" @click="removeFromCart(product.id)">{{ removeLabel }}</button>
-						<p>{{ product.title }}  {{ product.quantity > 0 ?  ` - Quantity: ${product.quantity}` : ''}}</p>
-						<p>{{ product.price }} &euro;</p>
+						<p>{{ product.title }}  {{ product.quantity > 0 ?  ` - Quantidade: ${product.quantity}` : ''}}</p>
+						<p>R&#36;{{ product.price }}</p>
 					</div>
 					<div v-if="products.length === 0">
 						<p>{{ cartEmptyLabel }}</p>
@@ -36,8 +36,8 @@ export default {
 	data () {
 		return {
 			modalTitle: 'Checkout',
-			removeLabel: 'Remove from cart',
-			cartEmptyLabel: 'Your cart is empty',
+			removeLabel: 'Remover do carrinho',
+			cartEmptyLabel: 'Seu carrinho está vazio',
 			closeLabel: 'Close',
 			isCheckoutSection: false
 		}
@@ -74,11 +74,11 @@ export default {
 				finalPrice = pricesArray.reduce((a, b) => a + b, 0); // sum the prices
 				
 				if (totalProducts > 1) { // set plural or singular
-					productLabel = 'products';
+					productLabel = 'produtos';
 				} else {
-					productLabel = 'product';
+					productLabel = 'produto';
 				}
-				return `Buy ${totalProducts} ${productLabel} at ${finalPrice}€`;
+				return `Comprar ${totalProducts} ${productLabel} por R$ ${finalPrice}`;
 		},
 		isUserLoggedIn () {
 			return this.$store.getters.isUserLoggedIn;

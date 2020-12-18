@@ -1,6 +1,6 @@
 export const state = () => ({
   products: [
-    /*{
+    {
       id: 1,
       title: 'Product 1',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
@@ -107,7 +107,7 @@ export const state = () => ({
       isAddedBtn: false,
       isFavourite: false,
       quantity: 1
-    }*/
+    }
   ],
   userInfo: {
     isLoggedIn: false,
@@ -255,6 +255,15 @@ export const actions = {
   },
 
   setProductList({commit}, products) {
+    products.forEach(p => {
+      p.ratings = 5,
+      p.reviews = 5,
+      p.isAddedToCart = false,
+      p.isAddedBtn = false,
+      p.isFavourite = false,
+      p.quantity = 1
+    });
+    
     commit("setProductList", products)
   }
 

@@ -44,7 +44,7 @@
           <p>{{ product.reviews > 0 ? `${product.reviews} Reviews` : 'No reviews' }}</p>
         </div>
         <p class="is-pulled-right">
-          <span class="title is-4"><strong>&euro; {{ product.price }}</strong></span>
+          <span class="title is-4"><strong>R&#36; {{ product.price }}</strong></span>
         </p>
       </div>
       <div class="card-footer btn-actions">
@@ -86,11 +86,11 @@ export default {
 
   data () {
     return {
-      addToCartLabel: 'Add to cart',
-      viewDetailsLabel: 'Details',
-      removeFromCartLabel: 'Remove from cart',
-      addToFavouriteLabel: 'Add to favourite',
-      removeFromFavouriteLabel: 'Remove from favourite',
+      addToCartLabel: 'Add ao carrinho',
+      viewDetailsLabel: 'Detalhes',
+      removeFromCartLabel: 'Remover do carrinho',
+      addToFavouriteLabel: 'Add aos favoritos',
+      removeFromFavouriteLabel: 'Remover dos favoritos',
       selected: 1,
       quantityArray: []
     }
