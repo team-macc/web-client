@@ -1,6 +1,6 @@
 export const state = () => ({
   products: [
-    {
+    /*{
       id: 1,
       title: 'Product 1',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
@@ -107,7 +107,7 @@ export const state = () => ({
       isAddedBtn: false,
       isFavourite: false,
       quantity: 1
-    }
+    }*/
   ],
   userInfo: {
     isLoggedIn: false,
@@ -232,24 +232,38 @@ export const mutations = {
       }
     });
   },
+  loginFailed: (state, data) => {
+    console.log("login failed")
+  },
   SET_USER(state, authUser) {
     state.authUser = authUser
   }
 }
-/* 
+
 export const actions = {
-  async nuxtServerInit({ commit }) {
-    const res = await this.$axios.get("/api/current_user")
-    commit("SET_USER", res.data)
+  async loggingIn({ commit }, credentials) {
+    this._axios({ url: '/login', data: credentials, method: 'POST' })
+      .then(res => commit("SET_USER", res.data))
+      .catch(err => commit("loginFailed", err))
   },
-
-  async logout({ commit }) {
-    const { data } = await this.$axios.get("/api/logout")
-    if (data.ok) commit("SET_USER", null)
-  },
-
-  async handleToken({ commit }, token) {
-    const res = await this.$axios.post("/api/stripe", token)
-    commit("SET_USER", res.data)
+  
+  showLoginModal({commit}, flag) {
+    commit("showLoginModal", flag)
   }
-} */
+
+  /*
+    async nuxtServerInit({ commit }) {
+      const res = await this.$axios.get("/api/current_user")
+      commit("SET_USER", res.data)
+    },
+  
+    async logout({ commit }) {
+      const { data } = await this.$axios.get("/api/logout")
+      if (data.ok) commit("SET_USER", null)
+    },
+  
+    async handleToken({ commit }, token) {
+      const res = await this.$axios.post("/api/stripe", token)
+      commit("SET_USER", res.data)
+    }*/
+}
