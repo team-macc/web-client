@@ -22,7 +22,7 @@ export default {
   data () {
     return {
       id: '',
-      noProductLabel: 'No product found',
+      noProductLabel: 'Nenhum produto encontrado',
       productsFiltered: []
     };
   },
