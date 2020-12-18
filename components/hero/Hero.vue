@@ -15,7 +15,7 @@
 
 <style lang="scss" scoped>
     .hero {
-      background: rgb(81, 186, 252);
+      background: #00d1b2;
     }
     h1, h2 {
       color: #fff;

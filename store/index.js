@@ -1,6 +1,6 @@
 export const state = () => ({
   products: [
-    /*{
+    {
       id: 1,
       title: 'Product 1',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
@@ -107,7 +107,7 @@ export const state = () => ({
       isAddedBtn: false,
       isFavourite: false,
       quantity: 1
-    }*/
+    }
   ],
   userInfo: {
     isLoggedIn: false,

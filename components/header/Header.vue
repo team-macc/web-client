@@ -66,10 +66,10 @@
 
     data () {
       return {
-        linkedinTooltip: 'Follow us on Linkedin',
-        facebookTooltip: 'Follow us on Facebook',
-        twitterTooltip: 'Follow us on Twitter',
-        instagramTooltip: 'Follow us on Instagram',
+        linkedinTooltip: 'Siga-nos no Linkedin',
+        facebookTooltip: 'Siga-nos no Facebook',
+        twitterTooltip: 'Siga-nos no Twitter',
+        instagramTooltip: 'Siga-nos no Instagram',
         isCheckoutActive: false,
         isMenuOpen: false
       }
