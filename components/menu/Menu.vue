@@ -45,7 +45,7 @@ export default {
 			wishlistLabel: 'Wishlist',
 			logoutLabel: 'Log out',
 			loginLabel: 'Log in',
-			signupLabel: 'Sign up'
+			signupLabel: 'Cadastre-se'
 		}
 	},
 
