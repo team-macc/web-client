@@ -18,7 +18,7 @@
                   :class="[
                     highlightEmailWithError ? 'input is-danger' : 'input',
                   ]"
-                  type="email"
+                  type="text"
                   :placeholder="emailPlaceholder"
                   name="emailName"
                   v-model="email"
@@ -51,7 +51,7 @@
                     highlightPasswordWithError ? 'input is-danger' : 'input',
                   ]"
                   type="password"
-                  placeholder="Your password"
+                  placeholder="Senha"
                   name="passwordName"
                   v-model="password"
                   @keyup="checkPasswordOnKeyUp(password)"
@@ -80,8 +80,7 @@
           <div v-if="isUserLoggedIn" class="level">
             <div class="level-item has-text-centered">
               <div>
-                <p class="title">Welcome back!</p>
-                <p class="heading">Now you are logged in</p>
+                <p class="title">Bem vindo de volta!</p>
               </div>
             </div>
           </div>
@@ -105,7 +104,6 @@
 </template>
 
 <script>
-import { isValidEmail } from "@/assets/validators";
 
 export default {
   name: "login",
@@ -113,13 +111,13 @@ export default {
   data() {
     return {
       modalTitle: "Log in",
-      modalTitleLoggedIn: "Welcome!",
+      modalTitleLoggedIn: "Bem vindo!",
       primaryBtnLabel: "Log in",
-      emailRequiredLabel: "Email required",
+      emailRequiredLabel: "Username required",
       passwordRequiredLabel: "Password required",
-      emailNotValidLabel: "Valid email required",
+      emailNotValidLabel: "Usuário valido",
       btnLoggedInLabel: "Close",
-      emailPlaceholder: "Your email",
+      emailPlaceholder: "Usuário",
       email: "",
       password: "",
       highlightEmailWithError: null,
@@ -153,7 +151,7 @@ export default {
         this.highlightPasswordWithError = false;
         this.isFormSuccess = true;
         this.$store.dispatch("loggingIn", {
-          email: this.email,
+          userName: this.email,
           password: this.password,
         });
       }
@@ -161,7 +159,7 @@ export default {
       if (!this.email) {
         this.highlightEmailWithError = true;
 
-        if (this.email && !isValidEmail(this.email)) {
+        if (this.email && this.email === "") {
           this.emailRequiredLabel = this.emailNotValidLabel;
         }
       } else {
@@ -175,7 +173,7 @@ export default {
       }
     },
     checkEmailOnKeyUp(emailValue) {
-      if (emailValue && isValidEmail(emailValue)) {
+      /*if (emailValue && isValidEmail(emailValue)) {
         this.highlightEmailWithError = false;
       } else {
         this.highlightEmailWithError = true;
@@ -183,7 +181,7 @@ export default {
         if (!isValidEmail(emailValue)) {
           this.emailRequiredLabel = this.emailNotValidLabel;
         }
-      }
+      }*/
     },
     checkPasswordOnKeyUp(passwordValue) {
       if (passwordValue) {

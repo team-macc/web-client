@@ -87,8 +87,7 @@
             <div v-if="isUserSignedUp" class="level">
               <div class="level-item has-text-centered">
                 <div>
-                  <p class="title">Welcome {{ name }}!</p>
-                  <p class="heading">Now you are a member</p>
+                  <p class="title">Bem vindo {{ name }}!</p>
                 </div>
               </div>
             </div>

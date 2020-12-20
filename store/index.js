@@ -1,6 +1,8 @@
+import axios from 'axios';
+
 export const state = () => ({
   products: [
-    {
+    /*{
       id: 1,
       title: 'Product 1',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
@@ -107,7 +109,7 @@ export const state = () => ({
       isAddedBtn: false,
       isFavourite: false,
       quantity: 1
-    }
+    }*/
   ],
   userInfo: {
     isLoggedIn: false,
@@ -236,17 +238,25 @@ export const mutations = {
     state.products = products;
   },
   loginFailed: (state, data) => {
-    console.log("login failed")
+    console.log(data)
   },
   SET_USER(state, authUser) {
-    state.authUser = authUser
+    state.userInfo.isLoggedIn = true
+    state.userInfo.isSignedUp = false
+    state.userInfo.hasSearched = false
+    state.userInfo.name = authUser.username
+    state.userInfo.productTitleSearched = ''
+    state.userInfo.token = authUser.token
   }
 }
 
 export const actions = {
   async loggingIn({ commit }, credentials) {
-    this._axios({ url: '/login', data: credentials, method: 'POST' })
-      .then(res => commit("SET_USER", res.data))
+    axios({ url: 'http://localhost:8080/login', data: credentials, method: 'POST' })
+      .then(res => {
+        commit("SET_USER", res.data)
+        commit("showLoginModal", false)
+      })
       .catch(err => commit("loginFailed", err))
   },
   
