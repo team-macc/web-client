@@ -8,7 +8,7 @@
     <div class="card-content">
       <div class="media">
         <div class="media-content">
-          <p class="title is-4">{{ product.title }}</p>
+          <p class="title is-4">{{ product.name }}</p>
         </div>
         <div>
           <button class="button is-small" :title="removeFromFavouriteLabel" v-show="product.isFavourite" @click="removeFromFavourite(product.id)">

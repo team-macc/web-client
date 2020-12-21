@@ -266,7 +266,6 @@ export const actions = {
 
   setProductList({commit}, products) {
     products.forEach(p => {
-      console.log(p)
       p.ratings = 5,
       p.reviews = 5,
       p.isAddedToCart = false,
