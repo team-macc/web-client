@@ -27,11 +27,11 @@ export default {
     };
   },
 
-  // created () {
-  //   axios.get('http://catalog')
-  //     .then(res => this.$store.dispatch(""))
-  //     .catch(err => console.log(err))
-  // },
+  created () {
+    axios.get('http://localhost:8080/product')
+      .then(res => this.$store.dispatch("setProductList", res.data._embedded.productVOList))
+      .catch(err => console.log(err))
+  },
 
   computed: {
     products () {
