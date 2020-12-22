@@ -252,7 +252,7 @@ export const mutations = {
 
 export const actions = {
   async loggingIn({ commit }, credentials) {
-    axios({ url: 'http://localhost:8080/login', data: credentials, method: 'POST' })
+    axios({ url: 'http://sso/login', data: credentials, method: 'POST' })
       .then(res => {
         commit("SET_USER", res.data)
         commit("showLoginModal", false)
@@ -276,20 +276,4 @@ export const actions = {
     
     commit("setProductList", products)
   }
-
-  /*
-    async nuxtServerInit({ commit }) {
-      const res = await this.$axios.get("/api/current_user")
-      commit("SET_USER", res.data)
-    },
-  
-    async logout({ commit }) {
-      const { data } = await this.$axios.get("/api/logout")
-      if (data.ok) commit("SET_USER", null)
-    },
-  
-    async handleToken({ commit }, token) {
-      const res = await this.$axios.post("/api/stripe", token)
-      commit("SET_USER", res.data)
-    }*/
 }

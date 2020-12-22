@@ -28,7 +28,7 @@ export default {
   },
 
   created () {
-    axios.get('http://localhost:8080/product')
+    axios.get('http://catalog/product')
       .then(res => this.$store.dispatch("setProductList", res.data._embedded.productVOList))
       .catch(err => console.log(err))
   },
